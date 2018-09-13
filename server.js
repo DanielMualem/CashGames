@@ -12,5 +12,9 @@ app.use( '/' , express.static(path.join(__dirname)));
 
 app.get('/', function(req, res){
     res.sendFile('/index.html',{root: __dirname});
+
+app.get('/hextris', function(req, res){
+    res.sendFile('/hextris/hextris.html',{root: __dirname});
+    
 });
 app.listen(_port, function() { console.log('listening port '+_port+"\n__dirname : "+__dirname)});
