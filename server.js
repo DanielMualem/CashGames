@@ -1,9 +1,16 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express'),
+    url = require("url"),  
+    path = require("path"),  
+    fs = require("fs");
 
-var html = fs.readFileSync('hextris.html');
+const _port = 80
+var app = express();
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(html);
-}).listen(80);
+
+
+app.use( '/' , express.static(path.join(__dirname));
+
+app.get('/', function(req, res){
+    res.sendFile('/hextris.html',{root: __dirname});
+});
+app.listen(_port, function() { console.log('listening port '+_port+"\n__dirname : "+__dirname)});
