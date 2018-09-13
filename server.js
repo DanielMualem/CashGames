@@ -11,6 +11,6 @@ var app = express();
 app.use( '/' , express.static(path.join(__dirname)));
 
 app.get('/', function(req, res){
-    res.sendFile('/hextris.html',{root: __dirname});
+    res.sendFile('/index.html',{root: __dirname});
 });
 app.listen(_port, function() { console.log('listening port '+_port+"\n__dirname : "+__dirname)});
