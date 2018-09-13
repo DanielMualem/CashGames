@@ -1,7 +1,9 @@
 var http = require('http');
+var fs = require('fs');
 
-//create a server object:
+var html = fs.readFileSync('index.html');
+
 http.createServer(function (req, res) {
-  res.write('Hello World!'); //write a response to the client
-  res.end(); //end the response
-}).listen(80); //the server object listens on port 80
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(html);
+}).listen(8000);
